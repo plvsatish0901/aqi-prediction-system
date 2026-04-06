@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQI Prediction Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Fade-in for the Top-Left Title */
+        @keyframes titleFadeIn {
+            0% { opacity: 0; transform: translateX(-10px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        .title-top-left {
+            animation: titleFadeIn 1s ease-out forwards;
+        }
+
+        /* Smooth Moving Gradient Background */
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animated-gradient-bg {
+            background-size: 400% 400% !important;
+            animation: gradientFlow 18s ease infinite;
+        }
+
+        /* Floating AQI Icons Animation */
+        @keyframes floatingIconUp {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.15; }
+            90% { opacity: 0.15; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Subtle Background Zoom */
+        @keyframes slowZoom {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        .background-container {
+            animation: slowZoom 20s ease-in-out infinite;
+        }
+
+        /* Legacy animations maintained for compatibility */
+        @keyframes floatBg {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes smokeDrift {
+            0% { transform: translate(-10%, 10%) scale(1); opacity: 0; }
+            50% { opacity: 0.15; }
+            100% { transform: translate(10%, -10%) scale(1.2); opacity: 0; }
+        }
+
+        @keyframes particle-drift {
+            0% { transform: translateY(0) translateX(0); opacity: 0; }
+            20% { opacity: 0.3; }
+            80% { opacity: 0.3; }
+            100% { transform: translateY(-100vh) translateX(10vw); opacity: 0; }
+        }
+
+        .smoke-layer {
+            position: absolute;
+            inset: -50%;
+            background: radial-gradient(circle at center, rgba(150,150,150,0.4) 0%, transparent 60%);
+            filter: blur(60px);
+            animation: smokeDrift 20s infinite linear;
+            pointer-events: none;
+        }
+
+        .vignette-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.2) 100%);
+            pointer-events: none;
+        }
+
+        .dark body { background-color: #0F172A; color: #F8FAFC; }
+
+        /* Custom Text Selection for Dark Mode */
+        .dark textarea::selection, 
+        .dark input::selection,
+        .dark ::selection {
+            background-color: rgba(56, 189, 248, 0.4);
+            color: #FFFFFF;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "framer-motion": "https://esm.sh/framer-motion@^12.34.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.564.0",
+    "recharts": "https://esm.sh/recharts@^3.7.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "chart.js": "https://esm.sh/chart.js@^4.4.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
