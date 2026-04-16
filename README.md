@@ -9,7 +9,7 @@ This project predicts Air Quality Index (AQI) using machine learning models and 
 - SQLite
 
 ## Features
-- AQI prediction using ML models (Random Forest, KNN)
+- AQI prediction using ML models (Random Forest)
 - Data preprocessing and feature scaling
 - REST API for real-time predictions
 - Interactive frontend dashboard
